@@ -10,11 +10,15 @@ help: Makefile
 	@echo ""
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
 
+.PHONY: build
 build: ## up and build
 	@$(DOCKER_COMPOSE) -f docker-compose.dev.yaml  up --build
+
+.PHONY: up
 up: ## up 
 	@$(DOCKER_COMPOSE) -f docker-compose.dev.yaml up
 
+.PHONY: sh
 sh: ## sh 
 	@$(DOCKER_COMPOSE) run $(SERVICE_NAME) sh
 
