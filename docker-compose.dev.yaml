@@ -1,0 +1,14 @@
+services:
+  pyutils:
+    tty: true
+    container_name: pyutils
+    image: python:${PYTHON_VERSION}-slim
+    command: sh -c "pip install -r requirements.txt && uvicorn main:app --reload --port=8000 --host=0.0.0.0"
+    working_dir: /app
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHON_VERSION=3.8.10

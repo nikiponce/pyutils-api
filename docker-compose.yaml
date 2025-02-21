@@ -1,0 +1,6 @@
+services:
+  pyutils:
+    build: .
+    command: sh -c "uvicorn main:app --reload --port=80 --host=0.0.0.0"
+    ports:
+      - 80:80
