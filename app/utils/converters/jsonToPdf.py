@@ -338,11 +338,11 @@ def generate_pdf_from_json_data(json_data):
             recobros_data = [["Tipo", "Fecha", "Descripción", "Haber", "Saldo"]]
             for recobro in expediente_data.get("recobros", []):
                 recobros_data.append([
-                    Paragraph(recobro.get("Tipo", ""), normal_style),
-                    Paragraph(str(recobro.get("Fecha", "")), normal_style),
-                    Paragraph(recobro.get("Descripcion", ""), normal_style),
-                    Paragraph(str(recobro.get("Haber", "")), normal_style),
-                    Paragraph(str(recobro.get("Saldo", "")), normal_style)
+                    Paragraph(recobro.get("tipo", ""), normal_style),
+                    Paragraph(str(recobro.get("fecha", "")), normal_style),
+                    Paragraph(recobro.get("descripcion", ""), normal_style),
+                    Paragraph(str(recobro.get("haber", "")), normal_style),
+                    Paragraph(str(recobro.get("saldo", "")), normal_style)
                 ])
 
             col_widths_recobros = [table_width * 0.15, table_width * 0.15, table_width * 0.4, table_width * 0.15, table_width * 0.15]
